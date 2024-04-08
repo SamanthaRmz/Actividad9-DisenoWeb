@@ -73,7 +73,7 @@
                 <span class="error-message">{{ $message }}</span>
             @enderror
             <input id="password" type="password" name="password" placeholder="Contraseña" required autocomplete="new-password">
-            <span id="password-error" class="error-message" style="display: none;"></span> <!-- Espacio para el mensaje de error -->
+            <span id="password-error" class="error-message" style="display: none;"></span> 
             <input id="password-confirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required autocomplete="new-password">
             <input type="submit" value="Registrarse">
         </form>

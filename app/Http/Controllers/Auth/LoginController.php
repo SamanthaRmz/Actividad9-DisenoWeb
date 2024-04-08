@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\LoginAlert;
 
 class LoginController extends Controller
 {
@@ -35,5 +36,10 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('auth.login');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        Mail::to($user->email)->send(new LoginAlert($user));
     }
 }
